@@ -1,0 +1,73 @@
+<template name="home">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary create">Create Game Room</button>
+    </div>
+  </div>
+
+  <ul>
+    {{#each rooms}}
+      {{> room}}
+    {{/each}}
+  </ul>
+
+  {{#if isCreate}}
+    <div class="overlay {{#if isCreate}} show {{/if}}">
+      <div class="popup">
+        <h2>Create Game Room</h2>
+        <a class="close" href="#">&times;</a>
+        <hr>
+        <div class="content">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="roomName" class="col-md-3 control-label">Room Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="roomName" placeholder="Input room name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="gameType" class="col-md-3 control-label">Select Game</label>
+              <div class="col-md-9">
+                <select id="gameType" class="form-control">
+                  <option >tic-tac-toe</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="playerNo" class="col-md-3 control-label">Player</label>
+              <div class="col-md-9">
+                <select id="playerNo" class="form-control">
+                  <option >2</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-3 col-md-9">
+                <div class="radio">
+                  <label>
+                    <input name="publicPrivate" id="public" type="radio" checked>
+                    Public
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input name="publicPrivate" id="private" type="radio" >
+                    Private
+                  </label>
+                  <label>
+                    <input type="password" id="privatePwd" class="form-control" placeholder="input password">
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-3 col-md-9">
+                <button type="submit" class="btn btn-primary">Create</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>
