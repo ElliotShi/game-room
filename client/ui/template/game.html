@@ -1,0 +1,20 @@
+<template name="game">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>For Freedom!!!</h1>
+    </div>
+    <div class="col-md-7">
+      {{#if user}}
+        <h2>{{ user }}</h2>
+        <a class="quit">Quit</a>
+      {{/if}}
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary exit">Exit</button>
+    </div>
+  </div>
+
+  <hr >
+
+
+</template>

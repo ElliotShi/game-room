@@ -55,7 +55,35 @@
   border-radius: 20px/50px;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  margin-top: 15%;
 }
 .create:hover {
   background: #06D85F;
+}
+
+h1, h2{
+  font-family: Papyrus,fantasy
+}
+p {
+  font-family: "Rockwell Extra Bold","Rockwell Bold",monospace
+}
+
+.room {
+  height: 6em;
+}
+.room:hover {
+  box-shadow:2px 2px 3px #d9edf7;
+}
+.roomType {
+  height: 5em;
+  border: 1px solid #d9edf7;
+  border-radius: 5px;
+  text-align: center;
+}
+.roomLightGreen {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #00FF00;
+  border-radius: 10px;
+  background-color: #00FF00;
 }
