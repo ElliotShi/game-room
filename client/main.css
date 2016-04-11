@@ -20,7 +20,7 @@
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 35%;
+  width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
 }
@@ -47,6 +47,11 @@
   max-height: 30%;
 }
 
+.gheader div:nth-child(3) {
+  padding-top: 1em;
+}
+
+
 .create {
   font-size: 1em;
   padding: 10px;
@@ -55,7 +60,7 @@
   border-radius: 20px/50px;
   cursor: pointer;
   transition: all 0.3s ease-out;
-  margin-top: 15%;
+  /*margin-top: 10%;*/
 }
 .create:hover {
   background: #06D85F;
@@ -64,21 +69,33 @@
 h1, h2{
   font-family: Papyrus,fantasy
 }
-p {
-  font-family: "Rockwell Extra Bold","Rockwell Bold",monospace
+p, span {
+  font-family: "Rockwell Extra Bold","Rockwell Bold",monospace;
+  color: white;
 }
 
 .room {
   height: 6em;
+  background-color: #48D1CC;
+}
+.gameLogo {
+  height: 100%;
 }
 .room:hover {
   box-shadow:2px 2px 3px #d9edf7;
 }
 .roomType {
+  margin-top: 0.5em;
   height: 5em;
-  border: 1px solid #d9edf7;
+/*  border: 1px solid #d9edf7;
   border-radius: 5px;
-  text-align: center;
+  text-align: center;*/
+}
+.roomStatus {
+  padding-top: 0.5em;
+}
+.roomNameOne {
+  font-size: 1.5em;
 }
 .roomLightGreen {
   width: 15px;
@@ -87,3 +104,27 @@ p {
   border-radius: 10px;
   background-color: #00FF00;
 }
+.roomLightRed {
+  width: 15px;
+  height: 15px;
+  border: 1px solid red;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.gameContent > * {
+  height: 30em;
+}
+.playerInfo {
+  width: 100%;
+  height: 5em;
+}
+.cells {
+  height: 100%;
+  border-right: 1px solid #DDD;
+}
+/*.cancelButton {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+}*/

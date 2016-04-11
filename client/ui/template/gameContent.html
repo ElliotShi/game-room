@@ -1,0 +1,49 @@
+<template name="gameContent">
+  <div class="col-md-8 col-sm-8 cells">
+    <div class="cancelButton">
+      {{#if roomStatus}}
+        <button class="btn btn-danger cancel">Cancel</button>
+      {{/if}}
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4">
+      <div class="playerInfo">
+        {{#if equals playerA ''}}
+          Waiting player to join
+        {{else}}
+          <div class="col-md-6 col-sm-6">
+            {{ playerA.username }}
+          </div>
+          <div class="col-md-6 col-sm-6">
+            {{#if roomStatus}}
+              Game started
+            {{else}}
+              <button class="statusA btn {{#if statusA}} btn-info {{else}} btn-danger {{/if}}" disabled="{{#unless isPlayerA}} disabled {{/unless}}">
+                {{#if statusA}}Ready!!!{{else}}Waiting...{{/if}}
+              </button>
+            {{/if}}
+          </div>
+        {{/if}}
+      </div>
+      <hr>
+      {{#if equals playerB ''}}
+        Waiting player to join
+      {{else}}
+        <div class="playerInfo">
+          <div class="col-md-6 col-sm-6">
+            {{ playerB.username }}
+          </div>
+          <div class="col-md-6 col-sm-6">
+            {{#if roomStatus}}
+              Game started
+            {{else}}
+              <button class="statusB btn {{#if statusB}} btn-info {{else}} btn-danger {{/if}}" disabled="{{#unless isPlayerB}} disabled {{/unless}}">
+                {{#if statusB}}Ready!!!{{else}}Waiting...{{/if}}
+              </button>
+            {{/if}}
+          </div>
+        </div>
+      {{/if}}
+      <hr>
+  </div>
+</template>

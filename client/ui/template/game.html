@@ -1,20 +1,32 @@
 <template name="game">
-  <div class="row">
-    <div class="col-md-3">
+  <div class="row gheader">
+    <div class="col-md-4 col-sm-5">
       <h1>For Freedom!!!</h1>
     </div>
-    <div class="col-md-7">
-      {{#if user}}
-        <h2>{{ user }}</h2>
+    <div class="col-md-7 col-sm-7">
+      {{#if currentUser}}
+        <h2>{{currentUser.username}}</h2>
         <a class="quit">Quit</a>
       {{/if}}
     </div>
-    <div class="col-md-2">
-      <button class="btn btn-primary exit">Exit</button>
+    <div class="col-md-1 col-sm-12">
+      <button class="btn btn-primary create">Exit</button>
     </div>
   </div>
 
   <hr >
-
-
+    <h2>{{ roomName }}</h2>
+  <hr >
+  <div class="row">
+    <div class="col-md-8 col-sm-8 gameContent">
+      <div class="thumbnail">
+        {{> gameContent}}
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 gameContent">
+      <div class="thumbnail">
+        <!-- {{> chat}} -->
+      </div>
+    </div>
+  </div>
 </template>

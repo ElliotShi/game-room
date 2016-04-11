@@ -1,15 +1,62 @@
 <template name="room">
   <div class="col-md-6">
-    <div class="thumbnail room">
-      <div class="col-md-3 roomType">
-        <p>{{ gameType }}</p>
+    <div class=" room">
+      <div class="col-md-2 col-sm-3 roomType">
+        <!-- <p>{{ gameType }}</p> -->
+        <img src="https://lh3.ggpht.com/ZtQkHs3t_q9IzrcTlw2DsWh7isAfknZMtvaD1x1ODT8DdFdj6ChDwo6Jgr5Eadg7sCk6=w300" class="gameLogo"/>
       </div>
-      <div class="col-md-6">
-        <p>{{ roomName }}</p>
+      <div class="col-md-6 col-sm-5">
+        <p class="roomNameOne">{{ roomName }}</p>
+        <span>{{ playerA.username }}</span>
+        {{#if playerB.username}}
+          <span>, </span>
+        {{/if}}
+        <span>{{ playerB.username }}</span>
       </div>
-      <div class="col-md-3">
-        <div class="roomLightGreen"></div>Waiting
+      <div class="col-md-4 col-sm-4 roomStatus">
+        {{#if roomStatus}}
+          <div class="col-md-3 col-sm-3">
+            <div class="roomLightRed"></div>
+          </div>
+          <div class="col-md-9 col-sm-9">
+            <span>Started</span>
+          </div>
+        {{else}}
+          <div class="col-md-3 col-sm-3">
+            <div class="roomLightGreen"></div>
+          </div>
+          <div class="col-md-9 col-sm-9">
+            <span>Waiting</span>
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>
+
+  {{#if isPrivate}}
+    <div class="overlay show">
+      <div class="popup">
+        <h2>Room password</h2>
+        <a class="close" href="#">&times;</a>
+        <hr>
+        {{#if isError}}
+          <p style="color:red">Wrong password</p>
+          <hr>
+        {{/if}}
+        <div class="content">
+          <form class="form-horizontal access">
+            <div class="form-group">
+              <div class="col-md-10">
+                <input type="password" class="form-control" id="roomPwd" placeholder="Input room password" required>
+              </div>
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Go</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
 </template>

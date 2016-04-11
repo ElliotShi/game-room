@@ -1,15 +1,15 @@
 <template name="home">
-  <div class="row">
-    <div class="col-md-3">
+  <div class="row gheader">
+    <div class="col-md-4 col-sm-5">
       <h1>For Freedom!!!</h1>
     </div>
-    <div class="col-md-7">
-      {{#if user}}
-        <h2>{{ user }}</h2>
+    <div class="col-md-6 col-sm-7">
+      {{#if currentUser}}
+        <h2>{{currentUser.username}}</h2>
         <a class="quit">Quit</a>
       {{/if}}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 col-sm-12">
       <button class="btn btn-primary create">Create Game Room</button>
     </div>
   </div>
@@ -23,23 +23,64 @@
   </div>
 
   <!-- input user name -->
-  {{#unless user}}
+  {{#unless currentUser}}
     <div class="overlay show">
       <div class="popup">
-        <h2>Player Name</h2>
-        <hr>
-        <div class="content">
-          <form class="form-horizontal regist">
-            <div class="form-group">
-              <div class="col-md-10">
+        {{#if isSignUp}}
+          <h2>Player Sign Up</h2>
+          <hr>
+          {{#if loginError}}
+            {{loginError}}
+            <hr>
+          {{/if}}
+          <div class="content">
+            <form class="regist">
+              <div class="form-group">
+                <label for="playerName">User Name</label>
                 <input type="text" class="form-control" id="playerName" placeholder="Input player name" required>
               </div>
-              <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">Go</button>
+              <div class="form-group">
+                <label for="playerPassword">Password</label>
+                <input type="password" class="form-control" id="playerPassword" placeholder="Input password" required>
               </div>
-            </div>
-          </form>
-        </div>
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+                <div class="col-md-9">
+                  <a class="playerLogin">_Login_</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        {{else}}
+          <h2>Player Login</h2>
+          <hr>
+          {{#if loginError}}
+            {{loginError}}
+            <hr>
+          {{/if}}
+          <div class="content">
+            <form class="login">
+              <div class="form-group">
+                <label for="playerName">User Name</label>
+                <input type="text" class="form-control" id="playerName" placeholder="Input player name" required>
+              </div>
+              <div class="form-group">
+                <label for="playerPassword">Password</label>
+                <input type="password" class="form-control" id="playerPassword" placeholder="Input password" required>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-2">
+                  <button type="submit" class="btn btn-primary">Go</button>
+                </div>
+                <div class="col-md-10 signup">
+                  <a class="signup">_Sign Up_</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        {{/if}}
       </div>
     </div>
   {{/unless}}
@@ -89,7 +130,7 @@
                     Private
                   </label>
                   <label>
-                    <input type="password" id="privatePwd" class="form-control" placeholder="input password" required>
+                    <input type="password" id="privatePwd" class="form-control" placeholder="input password" disabled="{{#if isPublic}} disabled {{/if}}" required="{{#unless isPublic}} required {{/unless}}">
                   </label>
                 </div>
               </div>
@@ -104,4 +145,5 @@
       </div>
     </div>
   {{/if}}
+
 </template>
